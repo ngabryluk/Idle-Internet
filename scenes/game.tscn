@@ -1,35 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1mnh1qludctg"]
+[gd_scene load_steps=2 format=3 uid="uid://c1mnh1qludctg"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_xtaw0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_v07tq"]
-font_size = 41
 
 [node name="Game" type="Node"]
 script = ExtResource("1_xtaw0")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.611765, 0.356863, 0.2, 1)
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 248.0
+offset_top = 601.0
+offset_right = 939.0
+offset_bottom = 639.0
+theme_override_font_sizes/font_size = 21
+text = "Back to Main Menu"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 77.0
+offset_top = 28.0
+offset_right = 171.0
+offset_bottom = 68.0
+color = Color(0.384314, 0.223529, 0.113725, 1)
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -345.5
-offset_top = -28.5
-offset_right = 345.5
-offset_bottom = 28.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-vertical = true
+text = "Game"
 
-[node name="Label" type="Label" parent="BoxContainer"]
-layout_mode = 2
-text = "We're in the actual game now yay!"
-label_settings = SubResource("LabelSettings_v07tq")
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 182.0
+offset_top = 28.0
+offset_right = 276.0
+offset_bottom = 68.0
+color = Color(0.235294, 0.129412, 0.054902, 1)
 
-[node name="Button" type="Button" parent="BoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 21
-text = "Back to Main Menu"
+[node name="Label" type="Label" parent="ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Education"
 
-[connection signal="pressed" from="BoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 63.0
+offset_top = 68.0
+offset_right = 1095.0
+offset_bottom = 582.0
+color = Color(0.384314, 0.223529, 0.113725, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Contents of section will be in this box"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
