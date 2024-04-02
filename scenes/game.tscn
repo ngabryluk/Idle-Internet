@@ -1,90 +1,124 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1mnh1qludctg"]
+[gd_scene load_steps=3 format=3 uid="uid://c1mnh1qludctg"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_xtaw0"]
 
-[node name="Game" type="Node"]
-script = ExtResource("1_xtaw0")
+[sub_resource type="Theme" id="Theme_3udql"]
+TabContainer/styles/panel = null
+TabContainer/styles/tab_selected = null
+TabContainer/styles/tab_unselected = null
+TabContainer/styles/tabbar_background = null
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Game" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.611765, 0.356863, 0.2, 1)
+script = ExtResource("1_xtaw0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_3udql")
+
+[node name="Game" type="TabBar" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="PacketButton" type="Button" parent="MarginContainer/TabContainer/Game"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 234.0
+offset_right = 382.0
+offset_bottom = 276.0
+text = "Send Packets"
+
+[node name="Upgrades" type="Control" parent="MarginContainer/TabContainer/Game"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="2xButton" type="Button" parent="MarginContainer/TabContainer/Game/Upgrades"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 208.0
+offset_right = 627.0
+offset_bottom = 247.0
+text = "+2 multiplier"
+
+[node name="4xButton" type="Button" parent="MarginContainer/TabContainer/Game/Upgrades"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 264.0
+offset_right = 629.0
+offset_bottom = 300.0
+text = "+4 multiplier"
+
+[node name="8xButton" type="Button" parent="MarginContainer/TabContainer/Game/Upgrades"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 317.0
+offset_right = 630.0
+offset_bottom = 357.0
+text = "+8 multiplier"
+
+[node name="PacketTotal" type="Label" parent="MarginContainer/TabContainer/Game"]
+layout_mode = 0
+offset_left = 318.0
+offset_top = -66.0
+offset_right = 466.0
+offset_bottom = -21.0
+
+[node name="MultiplierLabel" type="Label" parent="MarginContainer/TabContainer/Game"]
+layout_mode = 0
+offset_left = 515.0
+offset_top = -65.0
+offset_right = 683.0
+offset_bottom = -20.0
+
+[node name="Education" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/TabContainer/Education"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.682353, 0.501961, 0.670588, 1)
 
 [node name="BackButton" type="Button" parent="."]
-offset_left = 248.0
-offset_top = 601.0
-offset_right = 939.0
-offset_bottom = 639.0
-theme_override_font_sizes/font_size = 21
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.5
+offset_top = -41.525
+offset_right = 78.5001
+offset_bottom = -10.525
+grow_horizontal = 2
+grow_vertical = 0
 text = "Back to Main Menu"
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 77.0
-offset_top = 28.0
-offset_right = 171.0
-offset_bottom = 68.0
-color = Color(0.384314, 0.223529, 0.113725, 1)
-
-[node name="Label" type="Label" parent="ColorRect2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Game"
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = 182.0
-offset_top = 28.0
-offset_right = 276.0
-offset_bottom = 68.0
-color = Color(0.235294, 0.129412, 0.054902, 1)
-
-[node name="Label" type="Label" parent="ColorRect3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Education"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 63.0
-offset_top = 68.0
-offset_right = 1095.0
-offset_bottom = 582.0
-color = Color(0.384314, 0.223529, 0.113725, 1)
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Contents of section will be in this box"
-
-[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/TabContainer/Game/PacketButton" to="." method="_on_packet_button_pressed"]
+[connection signal="pressed" from="MarginContainer/TabContainer/Game/Upgrades/2xButton" to="." method="_on_2xbutton_pressed"]
+[connection signal="pressed" from="MarginContainer/TabContainer/Game/Upgrades/4xButton" to="." method="_on_4xbutton_pressed"]
+[connection signal="pressed" from="MarginContainer/TabContainer/Game/Upgrades/8xButton" to="." method="_on_8xbutton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
