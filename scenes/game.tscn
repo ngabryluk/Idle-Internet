@@ -76,6 +76,7 @@ offset_top = 20.0
 offset_right = 917.16
 offset_bottom = 65.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_di04k")
+text = "Number of Packets"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -86,6 +87,7 @@ offset_top = 20.0
 offset_right = 1096.0
 offset_bottom = 65.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_txvlr")
+text = "Packet Rate"
 horizontal_alignment = 1
 vertical_alignment = 1
 

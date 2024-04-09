@@ -31,3 +31,5 @@ layout_mode = 2
 text = "Packet Relay Enhancement"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Click" to="." method="_on_click_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/TwoMultiplier" to="." method="_on_two_multiplier_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/FiveMultiplier" to="." method="_on_five_multiplier_pressed"]

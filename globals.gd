@@ -4,7 +4,7 @@ var num_packets: int = 0:
 	set(value):
 		num_packets = value
 
-var packets_per_click: int = 0:
+var packets_per_click: int = 1:
 	set(value):
 		packets_per_click = value
 
