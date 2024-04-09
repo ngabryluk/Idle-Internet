@@ -45,6 +45,26 @@ theme = SubResource("Theme_3udql")
 [node name="Game" type="TabBar" parent="MarginContainer/TabContainer"]
 layout_mode = 2
 
+[node name="PacketTotal" type="Label" parent="MarginContainer/TabContainer/Game"]
+layout_mode = 0
+offset_left = 699.16
+offset_top = -61.0
+offset_right = 867.16
+offset_bottom = -16.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_di04k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultiplierLabel" type="Label" parent="MarginContainer/TabContainer/Game"]
+layout_mode = 0
+offset_left = 878.0
+offset_top = -61.0
+offset_right = 1046.0
+offset_bottom = -16.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_txvlr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Upgrades" parent="MarginContainer/TabContainer/Game" instance=ExtResource("2_80b7q")]
 layout_mode = 1
 
@@ -69,28 +89,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.682353, 0.501961, 0.670588, 1)
 
-[node name="PacketTotal" type="Label" parent="."]
-layout_mode = 0
-offset_left = 749.16
-offset_top = 20.0
-offset_right = 917.16
-offset_bottom = 65.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_di04k")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PacketRateLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 928.0
-offset_top = 20.0
-offset_right = 1096.0
-offset_bottom = 65.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_txvlr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AutoTimer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="pressed" from="MarginContainer/TabContainer/Game/PacketButton" to="." method="_on_packet_button_pressed"]
-[connection signal="timeout" from="AutoTimer" to="." method="_on_auto_timer_timeout"]

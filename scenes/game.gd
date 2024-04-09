@@ -1,34 +1,24 @@
 extends Control
 
-@onready var packet_total_label: Label = $MarginContainer/TabContainer/Game/PacketTotal
-@onready var multiplier_label: Label = $MarginContainer/TabContainer/Game/MultiplierLabel
-
-var packet_total: int = 0
-var multiplier: int = 0
+@onready var packet_total_label: Label = $PacketTotal
+@onready var packet_rate_label: Label = $PacketRateLabel
 
 func _ready():
-	packet_total_label.text = str(packet_total)
-	multiplier_label.text = "1 packet/click"
-
-func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/welcome.tscn")
+	packet_total_label.text = str(Globals.num_packets) + " packet(s)"
+	packet_rate_label.text = "1 packet/click\n" + str(Globals.auto_packets_per_second) + " packet(s)/second"
 
 func _on_packet_button_pressed():
-	if multiplier == 0:
-		packet_total += 1
+	var val
+	if Globals.packets_per_click == 0:
+		val = 1
 	else:
-		packet_total += multiplier
+		val = Globals.packets_per_click
 	
-	packet_total_label.text = str(packet_total)
+	update_packets(val)
 
-func _on_2xbutton_pressed():
-	multiplier += 2
-	multiplier_label.text = str(multiplier) + " packets/click"
+func update_packets(value):
+	Globals.num_packets += value
+	packet_total_label.text = str(Globals.num_packets) + " packet(s)"
 
-func _on_4xbutton_pressed():
-	multiplier += 4
-	multiplier_label.text = str(multiplier) + " packets/click"
-
-func _on_8xbutton_pressed():
-	multiplier += 8
-	multiplier_label.text = str(multiplier) + " packets/click"
+func _on_auto_timer_timeout():
+	update_packets(Globals.auto_packets_per_second)

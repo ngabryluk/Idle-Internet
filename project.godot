@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Idle Internet"
-run/main_scene="res://scenes/welcome.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://globals.gd"
 
 [rendering]
 
