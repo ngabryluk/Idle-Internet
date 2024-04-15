@@ -59,7 +59,7 @@ func update_button_text():
 	five_multiplier_upgrade_button.text = "Packet Relay Enhancement\n" + str(five_cost) + " Packets"
 
 func update_rate_display():
-	$"../../../../PacketRateLabel".text = str(Globals.packets_per_click) + " packet/click\n" + str(Globals.auto_packets_per_second) + " packet(s)/second"
+	$"../../../../PacketRateLabel".text = str(Globals.packets_per_click) + " packets/click\n" + str(Globals.auto_packets_per_second) + " packets/second"
 
 func update_packet_amount():
 	$"../../../../PacketTotal".text = str(Globals.num_packets) + " packet(s)"

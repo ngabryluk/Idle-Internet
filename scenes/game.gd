@@ -6,7 +6,7 @@ extends Control
 func _ready():
 	# Specify the text in the display labels at the top
 	packet_total_label.text = str(Globals.num_packets) + " packet(s)"
-	packet_rate_label.text = str(Globals.packets_per_click) + " packet/click\n" + str(Globals.auto_packets_per_second) + " packet(s)/second"
+	packet_rate_label.text = str(Globals.packets_per_click) + " packet/click\n" + str(Globals.auto_packets_per_second) + " packets/second"
 
 func _on_packet_button_pressed():
 	update_packets(Globals.packets_per_click)

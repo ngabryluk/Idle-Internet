@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://du1ckmrf7a5xi"]
+[gd_scene load_steps=3 format=3 uid="uid://du1ckmrf7a5xi"]
 
 [ext_resource type="Script" path="res://scenes/upgrades.gd" id="1_w4pei"]
+[ext_resource type="FontFile" uid="uid://qmvrt77xxw83" path="res://Cybersomething.ttf" id="2_ddhlv"]
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -19,15 +20,18 @@ size_flags_horizontal = 4
 [node name="Click" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ddhlv")
 text = "Increase Packet Stream
 "
 
 [node name="TwoMultiplier" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ddhlv")
 text = "Packet Relay Upgrade"
 
 [node name="FiveMultiplier" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ddhlv")
 text = "Packet Relay Enhancement"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Click" to="." method="_on_click_pressed"]
