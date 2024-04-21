@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://du1ckmrf7a5xi"]
+[gd_scene load_steps=11 format=3 uid="uid://du1ckmrf7a5xi"]
 
 [ext_resource type="Script" path="res://scenes/upgrades.gd" id="1_w4pei"]
 [ext_resource type="PackedScene" uid="uid://y8yx6axkxsea" path="res://scenes/upgrade.tscn" id="3_l7wka"]
+[ext_resource type="Texture2D" uid="uid://dtucy4jpnpuox" path="res://icons/router.png" id="4_4ybku"]
 [ext_resource type="Script" path="res://scenes/two.gd" id="4_egifm"]
 [ext_resource type="Script" path="res://scenes/click.gd" id="4_yda6c"]
 [ext_resource type="Script" path="res://scenes/five.gd" id="5_ous38"]
 [ext_resource type="Script" path="res://scenes/ten.gd" id="6_aq10g"]
+[ext_resource type="Texture2D" uid="uid://ceutwiihpm67i" path="res://icons/switch.png" id="6_mayw3"]
+[ext_resource type="Texture2D" uid="uid://cr0sd5cfkw5vs" path="res://icons/server_rack.png" id="8_emh13"]
+[ext_resource type="Texture2D" uid="uid://d3bid8gkkukts" path="res://icons/access_point.png" id="10_66ska"]
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -14,50 +18,66 @@ script = ExtResource("1_w4pei")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 190.0
+offset_right = 400.0
 offset_bottom = 58.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Click" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
+[node name="Click_Router" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
 layout_mode = 2
 script = ExtResource("4_yda6c")
 
-[node name="Two" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
+[node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Click_Router" index="0"]
+offset_right = 400.0
+offset_bottom = 38.0
+text = "Router
+X Packets"
+icon = ExtResource("4_4ybku")
+
+[node name="Two_Switch" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
 layout_mode = 2
 script = ExtResource("4_egifm")
 
-[node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Two" index="0"]
-offset_top = 50.0
-offset_right = 41.0
-offset_bottom = 81.0
+[node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Two_Switch" index="0"]
+offset_top = 56.0
+offset_right = 400.0
+offset_bottom = 112.0
+text = "Switch
+X Packets"
+icon = ExtResource("6_mayw3")
 
 [node name="Five" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
 layout_mode = 2
 script = ExtResource("5_ous38")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Five" index="0"]
-offset_top = 100.0
-offset_right = 41.0
-offset_bottom = 131.0
+offset_top = 112.0
+offset_right = 400.0
+offset_bottom = 168.0
+text = "Server Rack
+X Packets"
+icon = ExtResource("8_emh13")
 
 [node name="Ten" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
 layout_mode = 2
 script = ExtResource("6_aq10g")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Ten" index="0"]
-offset_top = 150.0
-offset_right = 41.0
-offset_bottom = 181.0
+offset_top = 168.0
+offset_right = 400.0
+offset_bottom = 224.0
+text = "Add Access Point
+X Packets"
+icon = ExtResource("10_66ska")
 
-[connection signal="upgraded" from="HBoxContainer/VBoxContainer/Click" to="." method="_on_upgrade_upgraded"]
-[connection signal="upgraded" from="HBoxContainer/VBoxContainer/Two" to="." method="_on_upgrade_upgraded"]
+[connection signal="upgraded" from="HBoxContainer/VBoxContainer/Click_Router" to="." method="_on_upgrade_upgraded"]
+[connection signal="upgraded" from="HBoxContainer/VBoxContainer/Two_Switch" to="." method="_on_upgrade_upgraded"]
 [connection signal="upgraded" from="HBoxContainer/VBoxContainer/Five" to="." method="_on_upgrade_upgraded"]
 [connection signal="upgraded" from="HBoxContainer/VBoxContainer/Ten" to="." method="_on_upgrade_upgraded"]
 
-[editable path="HBoxContainer/VBoxContainer/Click"]
-[editable path="HBoxContainer/VBoxContainer/Two"]
+[editable path="HBoxContainer/VBoxContainer/Click_Router"]
+[editable path="HBoxContainer/VBoxContainer/Two_Switch"]
 [editable path="HBoxContainer/VBoxContainer/Five"]
 [editable path="HBoxContainer/VBoxContainer/Ten"]

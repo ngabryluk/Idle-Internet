@@ -34,10 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_top = 105
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -51,13 +48,16 @@ layout_mode = 2
 layout_mode = 1
 
 [node name="PacketButton" type="Button" parent="MarginContainer/TabContainer/Game"]
-layout_mode = 0
-offset_left = 286.0
-offset_top = 145.0
-offset_right = 427.0
-offset_bottom = 187.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_pe166")
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 35
 text = "Send Packets"
 
 [node name="Education" type="TabBar" parent="MarginContainer/TabContainer"]
@@ -74,24 +74,34 @@ grow_vertical = 2
 color = Color(0.682353, 0.501961, 0.670588, 1)
 
 [node name="PacketTotal" type="Label" parent="."]
-layout_mode = 0
-offset_left = 749.16
-offset_top = 20.0
-offset_right = 917.16
-offset_bottom = 65.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_pe166")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_di04k")
 text = "Number of Packets"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PacketRateLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 928.0
-offset_top = 20.0
-offset_right = 1096.0
-offset_bottom = 65.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 55.0
+offset_right = 150.0
+offset_bottom = 95.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_pe166")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_txvlr")
 text = "Packet Rate"
 horizontal_alignment = 1
