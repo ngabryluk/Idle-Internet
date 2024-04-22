@@ -5,6 +5,7 @@ class_name Upgrade
 signal upgraded
 
 @onready var upgrade_button: Button = $UpgradeButton
+@onready var text: RichTextLabel = $UpgradeButton/Text
 
 var cost: int = 0
 var packets_per_click: int = 0
@@ -13,7 +14,22 @@ var cost_increase_rate: float = 0
 var default_text: String = ""
 
 func _ready():
-	update_button_text()
+	update_button_text(Color.RED)
+
+func _process(_delta):
+	# Change the opacity of the button depending on if the player has enough packets
+	var tween = get_tree().create_tween()
+	var color
+	if Globals.num_packets >= cost:
+		# Change the opacity of the button to full
+		tween.tween_property(upgrade_button, "modulate:a", 1, 0.3)
+		color = Color.GREEN
+	else:
+		# Change opacity of the button to half
+		tween.tween_property(upgrade_button, "modulate:a", 0.5, 0.3)
+		color = Color.RED
+	
+	update_button_text(color)
 
 func _on_upgrade_button_pressed():
 	if Globals.num_packets >= cost:
@@ -26,8 +42,17 @@ func _on_upgrade_button_pressed():
 		
 		# Update cost
 		cost = ceili(cost * cost_increase_rate)
-		update_button_text()
 		upgraded.emit()
 
-func update_button_text():
-	upgrade_button.text = default_text + "\n" + str(cost) + " Packets"
+func update_button_text(color):
+	text.clear()
+	text.push_paragraph(HORIZONTAL_ALIGNMENT_CENTER)
+	text.push_font_size(25)
+	text.append_text(default_text + "\n")
+	text.push_color(color)
+	text.append_text(str(cost))
+	text.pop()
+	text.append_text(" Packets")
+	text.pop()
+	text.pop()
+	#upgrade_button.text = default_text + "\n" + str(cost) + " Packets"

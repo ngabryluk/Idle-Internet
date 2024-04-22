@@ -9,9 +9,21 @@ script = ExtResource("1_en7bu")
 
 [node name="UpgradeButton" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 400.0
+offset_bottom = 65.0
 theme_override_font_sizes/font_size = 25
-text = "Test"
+
+[node name="Text" type="RichTextLabel" parent="UpgradeButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
 
 [connection signal="pressed" from="UpgradeButton" to="." method="_on_upgrade_button_pressed"]

@@ -30,10 +30,8 @@ layout_mode = 2
 script = ExtResource("4_yda6c")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Click_Router" index="0"]
-offset_right = 400.0
+modulate = Color(1, 1, 1, 0.501961)
 offset_bottom = 38.0
-text = "Router
-X Packets"
 icon = ExtResource("4_4ybku")
 
 [node name="Two_Switch" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
@@ -41,11 +39,9 @@ layout_mode = 2
 script = ExtResource("4_egifm")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Two_Switch" index="0"]
+modulate = Color(1, 1, 1, 0.5)
 offset_top = 56.0
-offset_right = 400.0
 offset_bottom = 112.0
-text = "Switch
-X Packets"
 icon = ExtResource("6_mayw3")
 
 [node name="Five" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
@@ -53,11 +49,9 @@ layout_mode = 2
 script = ExtResource("5_ous38")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Five" index="0"]
+modulate = Color(1, 1, 1, 0.5)
 offset_top = 112.0
-offset_right = 400.0
 offset_bottom = 168.0
-text = "Server Rack
-X Packets"
 icon = ExtResource("8_emh13")
 
 [node name="Ten" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
@@ -65,11 +59,9 @@ layout_mode = 2
 script = ExtResource("6_aq10g")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Ten" index="0"]
+modulate = Color(1, 1, 1, 0.5)
 offset_top = 168.0
-offset_right = 400.0
 offset_bottom = 224.0
-text = "Add Access Point
-X Packets"
 icon = ExtResource("10_66ska")
 
 [connection signal="upgraded" from="HBoxContainer/VBoxContainer/Click_Router" to="." method="_on_upgrade_upgraded"]
