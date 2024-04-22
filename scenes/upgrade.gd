@@ -15,6 +15,12 @@ var default_text: String = ""
 
 func _ready():
 	update_button_text(Color.RED)
+	
+	# If the upgrade increases packets per click
+	if packets_per_second == 0:
+		upgrade_button.tooltip_text = "+" + str(packets_per_click) + " Packets Per Click"
+	else:
+		upgrade_button.tooltip_text = "+" + str(packets_per_second) + " Packets Per Second"
 
 func _process(_delta):
 	# Change the opacity of the button depending on if the player has enough packets
