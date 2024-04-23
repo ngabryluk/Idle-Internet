@@ -10,6 +10,18 @@ func _ready():
 	
 	$MarginContainer/TabContainer/Game/PacketButton.tooltip_text = "Add " + str(Globals.packets_per_click) + " packet to your total"
 
+	$Welcome.connect("game_start", start_game)
+
+func start_game():
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property($Welcome, "modulate:a", 0, 1.0)
+	tween.tween_property($MarginContainer, "modulate:a", 1, 1.0)
+	tween.tween_property($PacketTotal, "modulate:a", 1, 1.0)
+	tween.tween_property($PacketRateLabel, "modulate:a", 1, 1.0)
+	await tween.finished
+	$Welcome.queue_free()
+
 func _on_packet_button_pressed():
 	update_packets(Globals.packets_per_click)
 

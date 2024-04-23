@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://p1hsq483c7f8"]
+
+[ext_resource type="Script" path="res://scenes/welcome.gd" id="1_mwwof"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64wo3"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wn8wy"]
+font_size = 26
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xg3d"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 5
+border_width_top = 3
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47d3o"]
+bg_color = Color(0.313726, 0.313726, 0.313726, 1)
+border_width_left = 5
+border_width_top = 3
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="Welcome" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mwwof")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -208.0
+offset_right = -30.0
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Container"]
+custom_minimum_size = Vector2(340, 373)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_64wo3")
+text = "Welcome to Idle Internet!
+
+Click the \"Send Packets\" button at the bottom to earn packets to purchase upgrades increasing the packets you earn.
+
+TIP: Hover over each upgrade to see how it will increase your packet stream!"
+label_settings = SubResource("LabelSettings_wn8wy")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Start" type="Button" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_7xg3d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_47d3o")
+text = "Start Game"
+
+[connection signal="pressed" from="Container/Start" to="." method="_on_start_pressed"]

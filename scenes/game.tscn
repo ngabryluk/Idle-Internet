@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1mnh1qludctg"]
+[gd_scene load_steps=8 format=3 uid="uid://c1mnh1qludctg"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_xtaw0"]
 [ext_resource type="PackedScene" uid="uid://du1ckmrf7a5xi" path="res://scenes/upgrades.tscn" id="2_80b7q"]
 [ext_resource type="FontFile" uid="uid://qmvrt77xxw83" path="res://Cybersomething.ttf" id="2_pe166"]
+[ext_resource type="PackedScene" uid="uid://d4efvvnr56d2o" path="res://scenes/welcome.tscn" id="4_6fd1j"]
 
 [sub_resource type="Theme" id="Theme_3udql"]
 TabContainer/styles/panel = null
@@ -26,6 +27,7 @@ grow_vertical = 2
 script = ExtResource("1_xtaw0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+modulate = Color(1, 1, 1, 0.301961)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,16 +66,8 @@ text = "Send Packets"
 visible = false
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/TabContainer/Education"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.682353, 0.501961, 0.670588, 1)
-
 [node name="PacketTotal" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.3)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -91,6 +85,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PacketRateLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.301961)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -109,6 +104,9 @@ vertical_alignment = 1
 
 [node name="AutoTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Welcome" parent="." instance=ExtResource("4_6fd1j")]
+layout_mode = 1
 
 [connection signal="pressed" from="MarginContainer/TabContainer/Game/PacketButton" to="." method="_on_packet_button_pressed"]
 [connection signal="timeout" from="AutoTimer" to="." method="_on_auto_timer_timeout"]
