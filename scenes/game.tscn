@@ -55,16 +55,12 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -70.0
+offset_top = -100.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_pe166")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "Send Packets"
-
-[node name="Education" type="TabBar" parent="MarginContainer/TabContainer"]
-visible = false
-layout_mode = 2
 
 [node name="PacketTotal" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.3)
