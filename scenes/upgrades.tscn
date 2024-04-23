@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://du1ckmrf7a5xi"]
+[gd_scene load_steps=14 format=3 uid="uid://du1ckmrf7a5xi"]
 
 [ext_resource type="Script" path="res://scenes/upgrades.gd" id="1_w4pei"]
 [ext_resource type="PackedScene" uid="uid://y8yx6axkxsea" path="res://scenes/upgrade.tscn" id="3_l7wka"]
@@ -8,8 +8,11 @@
 [ext_resource type="Script" path="res://scenes/five.gd" id="5_ous38"]
 [ext_resource type="Script" path="res://scenes/ten.gd" id="6_aq10g"]
 [ext_resource type="Texture2D" uid="uid://ceutwiihpm67i" path="res://icons/switch.png" id="6_mayw3"]
+[ext_resource type="Script" path="res://scenes/click_two.gd" id="7_26xhj"]
 [ext_resource type="Texture2D" uid="uid://cr0sd5cfkw5vs" path="res://icons/server_rack.png" id="8_emh13"]
 [ext_resource type="Texture2D" uid="uid://d3bid8gkkukts" path="res://icons/access_point.png" id="10_66ska"]
+[ext_resource type="Script" path="res://scenes/click_three.gd" id="10_fbp47"]
+[ext_resource type="Script" path="res://scenes/mega.gd" id="13_cwabn"]
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -44,15 +47,31 @@ offset_top = 56.0
 offset_bottom = 112.0
 icon = ExtResource("6_mayw3")
 
+[node name="Click_Two" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
+layout_mode = 2
+script = ExtResource("7_26xhj")
+
+[node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Click_Two" index="0"]
+offset_top = 112.0
+offset_bottom = 170.0
+
 [node name="Five" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
 layout_mode = 2
 script = ExtResource("5_ous38")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Five" index="0"]
 modulate = Color(1, 1, 1, 0.5)
-offset_top = 112.0
-offset_bottom = 168.0
+offset_top = 168.0
+offset_bottom = 226.0
 icon = ExtResource("8_emh13")
+
+[node name="Click_Three" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
+layout_mode = 2
+script = ExtResource("10_fbp47")
+
+[node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Click_Three" index="0"]
+offset_top = 224.0
+offset_bottom = 282.0
 
 [node name="Ten" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
 layout_mode = 2
@@ -60,16 +79,30 @@ script = ExtResource("6_aq10g")
 
 [node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Ten" index="0"]
 modulate = Color(1, 1, 1, 0.5)
-offset_top = 168.0
-offset_bottom = 224.0
+offset_top = 280.0
+offset_bottom = 338.0
 icon = ExtResource("10_66ska")
+
+[node name="Mega" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_l7wka")]
+layout_mode = 2
+script = ExtResource("13_cwabn")
+
+[node name="UpgradeButton" parent="HBoxContainer/VBoxContainer/Mega" index="0"]
+offset_top = 336.0
+offset_bottom = 394.0
 
 [connection signal="upgraded" from="HBoxContainer/VBoxContainer/Click_Router" to="." method="_on_upgrade_upgraded"]
 [connection signal="upgraded" from="HBoxContainer/VBoxContainer/Two_Switch" to="." method="_on_upgrade_upgraded"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Click_Two/UpgradeButton" to="." method="_on_upgrade_upgraded"]
 [connection signal="upgraded" from="HBoxContainer/VBoxContainer/Five" to="." method="_on_upgrade_upgraded"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Click_Three/UpgradeButton" to="." method="_on_upgrade_upgraded"]
 [connection signal="upgraded" from="HBoxContainer/VBoxContainer/Ten" to="." method="_on_upgrade_upgraded"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Mega/UpgradeButton" to="." method="_on_upgrade_upgraded"]
 
 [editable path="HBoxContainer/VBoxContainer/Click_Router"]
 [editable path="HBoxContainer/VBoxContainer/Two_Switch"]
+[editable path="HBoxContainer/VBoxContainer/Click_Two"]
 [editable path="HBoxContainer/VBoxContainer/Five"]
+[editable path="HBoxContainer/VBoxContainer/Click_Three"]
 [editable path="HBoxContainer/VBoxContainer/Ten"]
+[editable path="HBoxContainer/VBoxContainer/Mega"]
