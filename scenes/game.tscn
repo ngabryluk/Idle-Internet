@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_xtaw0"]
 [ext_resource type="PackedScene" uid="uid://du1ckmrf7a5xi" path="res://scenes/upgrades.tscn" id="2_80b7q"]
 [ext_resource type="FontFile" uid="uid://qmvrt77xxw83" path="res://Cybersomething.ttf" id="2_pe166"]
-[ext_resource type="PackedScene" uid="uid://p1hsq483c7f8" path="res://scenes/welcome.tscn" id="4_6fd1j"]
+[ext_resource type="PackedScene" path="res://scenes/welcome.tscn" id="4_6fd1j"]
 
 [sub_resource type="Theme" id="Theme_3udql"]
 TabContainer/styles/panel = null

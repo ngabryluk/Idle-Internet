@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Idle Internet"
+config/description="Idle Internet is an Internet-themed clicker game where you must send packets to upgrade and expand your network."
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icons/router.png"
 
 [autoload]
 
@@ -22,6 +23,7 @@ Globals="*res://globals.gd"
 [display]
 
 window/size/viewport_width=400
+window/size/resizable=false
 
 [gui]
 
